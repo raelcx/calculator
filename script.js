@@ -1,3 +1,5 @@
+const display = document.getElementById("display");
+
 function sum(a, b) {
 return a + b;
 }
@@ -32,7 +34,10 @@ function operate(a, b, operator) {
 }
 
 function updateDisplay(character) {
-    const display = document.getElementById("display");
+    if (resultShown == 1) {
+        display.textContent = '';
+        resultShown = 0
+    }
 
     switch(character) {
         case("button1"):
@@ -72,7 +77,7 @@ function updateDisplay(character) {
             display.textContent += ' / ';
             break;
         case("button-multiply"):
-            display.textContent += ' x ';
+            display.textContent += ' * ';
             break;
         case("button-subtract"):
             display.textContent += ' - ';
@@ -83,11 +88,39 @@ function updateDisplay(character) {
         case("button-clear"):
             display.textContent = '';
             break;
+        case("button-result"):
+            getOperation(display.textContent.split(' '));
+            break;
     }
 
 };
 
+function getOperation(displayValue) {
+    number1 = Number(displayValue[0]);
+    operator = displayValue[1];
+    number2 = Number(displayValue[2]);
+
+    let result = operate(number1, number2, operator);
+    displayResult(result);
+}
+
+function displayResult(result) {
+    display.textContent = result;
+    resultShown = 1;
+}
+
+let number1;
+let number2;
+let operator;
+let resultShown = 0;
+
 
 let calculator = document.getElementById("calculator");
 
-calculator.addEventListener("click", (e) => updateDisplay(e.target.id))
+calculator.addEventListener("click", (e) => {
+    const operators = '+-/*';
+
+
+    updateDisplay(e.target.id)
+
+})
