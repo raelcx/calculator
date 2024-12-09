@@ -1,0 +1,75 @@
+@import "./modern-normalize.css";
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('/fonts/opensans.woff2') format('woff2'),
+         url('/fonts/opensans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "open_sansregular", sans-serif;
+}
+
+body {
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title {
+    margin: 10px;
+}
+
+#calculator {
+    width: 450px;
+    height: 700px;
+    background-color: aliceblue;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+#display {
+    height: 150px;
+    width: 450px;
+    border: 2px yellow solid;
+    border-radius: 30px;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    border: 1px red solid;
+    text-align: center;
+    align-content: center;
+    border-radius: 100px;
+}
+
+button:hover {
+    background-color: blue;
+}
+button:focus {
+    background-color: red;
+}
